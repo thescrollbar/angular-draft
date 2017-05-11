@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-editor',
+  selector: 'angular-draft-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.css']
+  host: {
+    '(blur)': '_buildHandler',
+    '(focus)': '_buildHandler',
+    '[contentEditable]': 'true'
+  },
+  styleUrls: [ './editor.component.scss' ]
 })
-export class EditorComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  onInput(e) {
+export class EditorComponent {
+  private _buildHandler(e) {
     console.log(e);
   }
 

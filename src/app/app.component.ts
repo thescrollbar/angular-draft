@@ -7,11 +7,11 @@ import { convertFromDraftStateToRaw } from './model/encoding/convert-from-draft-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent {
   constructor() {
-    const baseContentState = ContentState.createFromText('#piupiu is a cat');
+    const baseContentState = ContentState.createFromText('#piupiu is a cat cat cat dog');
     baseContentState.createEntity('TOKEN', 'IMMUTABLE', { storedText: '#piupiu' });
     const lastEntityKey = baseContentState.getLastCreatedEntityKey();
     const firstBlockKey = baseContentState.getBlockMap().first().getKey();
@@ -26,7 +26,7 @@ export class AppComponent {
       lastEntityKey
     );
 
-    console.log(convertFromDraftStateToRaw(modifiedContentState));
+    // console.log(convertFromDraftStateToRaw(modifiedContentState));
 
   }
 }
